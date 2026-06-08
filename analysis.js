@@ -5,38 +5,168 @@ async function init(){
   data = await info.json();
 }
 
-let subdata;
-function ByBorough(){
-  //Discussion 1: Need variables in order to keep tallies of complaints for each borough
-  let q = 0, bk = 0, bx = 0, m = 0, s = 0;
-  
-  //Discussion 2: Traverse the data and use decision to determine which tally variable to increase.
-  for(let i = 0; i < data.length; i++){
-    let complaint = data[i];
-    if(complaint.borough == "QUEENS"){
-      q++;
-    }else if(complaint.borough == "MANHATTAN"){
-      m++;
-    }else if(complaint.borough == "BROOKLYN"){
-      bk++;
-    }else if(complaint.borough == "BRONX"){
-      bx++;
-    }else if(complaint.borough == "STATEN ISLAND"){
-      s++;
+function FurColor() {
+    let gray = 0, cinnamon = 0, black = 0, unknown = 0;
+
+    for (let i = 0; i < data.length; i++) {
+        let squirrel = data[i];
+
+        if (squirrel.primary_fur_color == "Gray") {
+            gray++;
+        } else if (squirrel.primary_fur_color == "Cinnamon") {
+            cinnamon++;
+        } else if (squirrel.primary_fur_color == "Black") {
+            black++;
+        } else {
+            unknown++;
+        }
     }
-  }
-  //Discussion 3: Build the data structure required for charts.  An array of arrays with the first position in each array representing the data label.
-  let chartData = [
-    ["QUEENS",q],
-    ["MANHATTAN",m],
-    ["BROOKLYN", bk],
-    ["BRONX", bx],
-    ["STATEN ISLAND", s]
-  ]
-  
-  //Discussion 4: Retrieve the type of chart to produce from the user's selection in the drop down box.
-  let chartType = get("chartType").value;
-  
-  //Discussion 5: Display the chart of the aggregated data
-  displayChart(chartData,"output",chartType)
+    
+    let chartData = [
+        ["Gray", gray],
+        ["Cinnamon", cinnamon],
+        ["Black", black],
+        ["Unknown", unknown]
+    ];
+
+    let chartType = document.getElementById("chartType").value;
+    displayChart(chartData, "output", chartType);
+
+    furParagraph.innerHTML = "   "
+}
+
+function Age() {
+    let adult = 0, juvenile = 0, unknown = 0;
+
+    for (let i = 0; i < data.length; i++) {
+        let squirrel = data[i];
+
+        if (squirrel.age == "Adult") {
+            adult++;
+        } else if (squirrel.age == "Juvenile") {
+            juvenile++;
+        } else {
+            unknown++;
+        }
+    }
+
+    let chartData = [
+        ["Adult", adult],
+        ["Juvenile", juvenile],
+        ["Unknown", unknown]
+    ];
+
+    let chartType = document.getElementById("chartType").value;
+    displayChart(chartData, "output", chartType);
+}
+
+function Location() {
+    let ground = 0, above = 0, unknown = 0;
+
+    for (let i = 0; i < data.length; i++) {
+        let squirrel = data[i];
+
+        if (squirrel.location == "Ground Plane") {
+            ground++;
+        } else if (squirrel.location == "Above Ground") {
+            above++;
+        } else {
+            unknown++;
+        }
+    }
+
+    let chartData = [
+        ["Ground Plane", ground],
+        ["Above Ground", above],
+        ["Unknown", unknown]
+    ];
+
+    let chartType = document.getElementById("chartType").value;
+    displayChart(chartData, "output", chartType);
+}
+
+function Activities() {
+    let running = 0, chasing = 0, climbing = 0, eating = 0, foraging = 0;
+
+    for (let i = 0; i < data.length; i++) {
+        let squirrel = data[i];
+
+        if (squirrel.running == true) {
+            running++;
+        }
+        if (squirrel.chasing == true) {
+            chasing++;
+        }
+        if (squirrel.climbing == true) {
+            climbing++;
+        }
+        if (squirrel.eating == true) {
+            eating++;
+        }
+        if (squirrel.foraging == true) {
+            foraging++;
+        }
+    }
+    let chartData = [
+        ["Running", running],
+        ["Chasing", chasing],
+        ["Climbing", climbing],
+        ["Eating", eating],
+        ["Foraging", foraging]
+    ];
+
+    let chartType = document.getElementById("chartType").value;
+    displayChart(chartData, "output", chartType);
+}
+
+function Shift() {
+    let am = 0, pm = 0;
+
+    for (let i = 0; i < data.length; i++) {
+        let squirrel = data[i];
+
+        if (squirrel.shift == "AM") {
+            am++;
+        } else if (squirrel.shift == "PM") {
+            pm++;
+        }
+    }
+
+    let chartData = [
+        ["AM", am],
+        ["PM", pm]
+    ];
+
+    let chartType = document.getElementById("chartType").value;
+    displayChart(chartData, "output", chartType);
+}
+
+function PickGraph() {
+    let graphTopic = document.getElementById("topic").value;
+
+    if (graphTopic == "fur") {
+        FurColor();
+    } else if (graphTopic == "age") {
+        Age();
+    } else if (graphTopic == "location") {
+        Location();
+    } else if (graphTopic == "activity") {
+        Activities();
+    } else if (graphTopic == "shift") {
+        Shift();
+    }
+}
+function get(id){
+  return document.getElementById(id);
+}
+
+
+function displayChart(chartData, location, chartType) {
+    c3.generate({
+        bindto: "#" + location,
+        data: {
+            columns: chartData,
+            type: chartType
+        }
+    });
 }

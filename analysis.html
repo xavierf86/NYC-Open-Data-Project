@@ -5,9 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>NYC Open Data</title>
         <link href="style.css" rel="stylesheet" type="text/css" />
-        <script src="script.js"></script>
+        <script src="analysis.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <link href="c3-eb4b9be8.css" rel="stylesheet" type="text/css" />
+        <script src="d3-5.8.2.min-c5268e33.js"></script>
+        <script src="c3.min-d2a1f852.js"></script>
     </head>
-    <body>
+    
+    <body onload="init()">
         <div id="banner" class="container center">
             <div style="text-align:center">
                 <h1>Central Park Squirrel Explorer</h1>
@@ -20,22 +25,42 @@
                 <p> Welcome to the Central Park Squirrel Dataset. This website uses data from the NYC Open Data Squirrel Census to help users learn about the squirrels that live throughout Central Park. Explore squirrel colors, behaviors, and locations using real data collected by researchers. </p>
             </div>
         </div>
-       
         <nav class="container">
             <a href="home.html">Home</a>
             <a href="filter2.html">Filter</a>
             <a href="analysis.html">Analysis</a>
             <a href="locations.html">Locations</a>
         </nav>
+        
         <div class="container">
-            <p><span class="highlight">Scenario:</span>Chart analyzes the number of complaints by boroughs.</p>
+            <p><span class="highlight">Scenario:</span> Choose a topic and chart type to explore squirrel data.</p>
+
+            <select id="topic" style="width:220px;">
+                <option value="fur">Primary Fur Color</option>
+                <option value="age">Age</option>
+                <option value="location">Location</option>
+                <option value="activity">Activities</option>
+                <option value="shift">AM vs PM Shift</option>
+            </select>
+
             <select id="chartType" style="width:200px;">
-                <option>Select Chart Type</option>
                 <option value="bar">Bar</option>
                 <option value="pie">Pie</option>
                 <option value="donut">Donut</option>
             </select>
-            <a class="button" onclick="ByBorough()"> Display </a>
+
+            <a class="button" onclick="PickGraph()">Display</a>
         </div>
+
+        <div class="container subbanner"><br></div>
+
+        <div id="chart"></div>
+
+
         <div class="container subbanner"><br></div>
         <div id="output"></div>
+
+
+
+    </body>
+</html>
