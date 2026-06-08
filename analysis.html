@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>NYC Open Data</title>
+        <link href="style.css" rel="stylesheet" type="text/css" />
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <div id="banner" class="container center">
+            <div style="text-align:center">
+                <h1>Central Park Squirrel Explorer</h1>
+                <h2>NYC Open Data Project</h2>
+            </div>
+        </div>
+        <div class="container subbanner center">
+            <div>
+                <h2>Welcome!</h2>
+                <p> Welcome to the Central Park Squirrel Dataset. This website uses data from the NYC Open Data Squirrel Census to help users learn about the squirrels that live throughout Central Park. Explore squirrel colors, behaviors, and locations using real data collected by researchers. </p>
+            </div>
+        </div>
+       
+        <nav class="container">
+            <a href="home.html">Home</a>
+            <a href="filter2.html">Filter</a>
+            <a href="analysis.html">Analysis</a>
+            <a href="locations.html">Locations</a>
+        </nav>
+        <div class="container">
+            <p><span class="highlight">Scenario:</span>Chart analyzes the number of complaints by boroughs.</p>
+            <select id="chartType" style="width:200px;">
+                <option>Select Chart Type</option>
+                <option value="bar">Bar</option>
+                <option value="pie">Pie</option>
+                <option value="donut">Donut</option>
+            </select>
+            <a class="button" onclick="ByBorough()"> Display </a>
+        </div>
+        <div class="container subbanner"><br></div>
+        <div id="output"></div>
