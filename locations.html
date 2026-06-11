@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>Locations</title>    
+
+    <!-- LeafletJS CSS file -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- LeafletJS JS file (must place after Leaflet's CSS file) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+
+    <link href="filter.css" rel="stylesheet" type="text/css" />
+    <script src="helper.js"></script>
+    <script src="locations.js"></script>    
+  </head>
+  
+  <body onload="init()">
+<div class="="fitted banner"><a href ="https://www.thesquirrelcensus.com/" target="_blank" ><img src="image.png" style="width: 100%;"></a></div>
+      
+        <div class="container subbanner center card">
+            <div>
+                <h2><u>Locations!</u></h2>
+                <p> This page showcases the squirrels and where they were spotted. </p>
+            </div>
+        </div>
+       
+        <nav class="container">
+            <a href="home.html">Home</a>
+            <a href="filter.html">Filter</a>
+            <a href="analysis.html">Analysis</a>
+            <a href="locations.html">Locations</a>
+        </nav>
+
+  
+   <div id="output" class="container ">
+      <div id="map"></div>
+      <div id="cards_output" class="container"></div>
+    </div>
+ 
+    
+    <div id="footer" class="container center">
+      <h3>Caden Wong</h3>
+    </div>  
+  </body>
+</html>

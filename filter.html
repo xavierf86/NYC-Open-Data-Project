@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>NYC OPEN DATA FILTER PAGE</title>
+
+
+    <!-- LeafletJS CSS file -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin=""/>
+    <!-- LeafletJS JS file (must place after Leaflet's CSS file) -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+    <link href="filter.css" rel="stylesheet" type="text/css" />
+    <script src="filterjs.js"></script>
+   </head>
+
+  <body onload="init()">
+    <div class="="fitted banner"><a href ="https://www.thesquirrelcensus.com/" target="_blank" ><img src="image.png" style="width: 100%;"></a></div>
+            <nav class="container">
+            <a href="home.html">Home</a>
+            <a href="filter.html">Filter</a>
+            <a href="analysis.html">Analysis</a>
+            <a href="locations.html">Locations</a>
+        </nav>
+                   <div class="card">
+                <h2><u>Filter!</u></h2>
+                <p> This page showcases the squirrels' ID, Coordinate, Fur Color, Age, the shift that they were founded in, and the activity they were spotted doing. </p>
+            </div>
+        </div>
+  <div class="container">
+    <div class="filt">
+      <h1>Filter by Age & Color</h1>
+      <select id="age-select">
+          <option value="">Select an Age</option>
+          <option value="Juvenile">Juvenile</option>
+          <option value="Adult">Adult</option>
+          <option value="">Undefined</option>
+      </select>
+
+
+      <input type="text" placeholder="Enter Color" id = "color">
+
+      <button id=search onclick="filter()">Search!</button>
+      </div>
+       
+  </div>
+    </div>
+    <div id="result"></div>
+    <div id="output" class="container">
+      <div id="map"></div>
+
+
+    </div>
+
+    <div id="footer" class="container center">
+      <h3>Caden Wong <br> Xavier Formoso <hr> NYC OPEN DATA PROJECT</h3>
+    </div>  
+  </body>
+</html>

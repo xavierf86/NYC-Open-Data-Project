@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>NYC Open Data</title>
-        <link href="style.css" rel="stylesheet" type="text/css" />
+        <link href="filter.css" rel="stylesheet" type="text/css" />
         <script src="analysis.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
         <link href="c3-eb4b9be8.css" rel="stylesheet" type="text/css" />
@@ -13,26 +13,24 @@
     </head>
     
     <body onload="init()">
-        <div id="banner" class="container center">
+         <div class="="fitted banner"><a href ="https://www.thesquirrelcensus.com/" target="_blank" ><img src="image.png" style="width: 100%;"></a></div>
             <div style="text-align:center">
-                <h1>Central Park Squirrel Explorer</h1>
-                <h2>NYC Open Data Project</h2>
             </div>
         </div>
         <div class="container subbanner center">
-            <div>
+            <div class = "card">
                 <h2>Welcome!</h2>
                 <p> Welcome to the Central Park Squirrel Dataset. This website uses data from the NYC Open Data Squirrel Census to help users learn about the squirrels that live throughout Central Park. Explore squirrel colors, behaviors, and locations using real data collected by researchers. </p>
             </div>
         </div>
         <nav class="container">
             <a href="home.html">Home</a>
-            <a href="filter2.html">Filter</a>
+            <a href="filter.html">Filter</a>
             <a href="analysis.html">Analysis</a>
             <a href="locations.html">Locations</a>
         </nav>
         
-        <div class="container">
+        <div class="card">
             <p><span class="highlight">Scenario:</span> Choose a topic and chart type to explore squirrel data.</p>
 
             <select id="topic" style="width:220px;">
